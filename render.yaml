@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: url2src
+    runtime: docker
+    plan: standard        # Chromium needs RAM. On 512MB plans set WORKERS=1
+    healthCheckPath: /health
+    envVars:
+      - key: WORKERS
+        value: "2"
+      - key: SIGNING_SECRET
+        generateValue: true
